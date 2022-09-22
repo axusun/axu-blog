@@ -42,7 +42,7 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./docs/.vuepress/dist
         asset_name: dist
-        asset_content_type: application/x-tgz
+        asset_content_type: text/plain
 
     # # 部署到服务器
     # - name: Deploy

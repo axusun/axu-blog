@@ -18,7 +18,7 @@ jobs:
       uses: actions/setup-node@master
     - run: npm install
     - run: npm run build
-    # - run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json package-lock.json pm2.config.json
+    - run: tar -zcvf release.tgz ./docs/.vuepress/dist
 
     # 发布 Release
     - name: Create Release
@@ -40,8 +40,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./docs/.vuepress/dist
-        asset_name: dist
+        asset_path: ./release.tgz
+        asset_name: release.taz
         asset_content_type: text/plain
 
     # # 部署到服务器

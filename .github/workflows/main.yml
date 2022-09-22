@@ -54,5 +54,5 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd /www/wwwroot/test
-          wget https://github.com//axusun/axu-blog/releases/latest/download/release.tgz -O release.tgz
+          wget https://github.com//axusun/axu-blog/releases/latest -O release.tgz
           tar zxvf release.tgz

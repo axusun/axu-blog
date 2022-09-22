@@ -42,17 +42,17 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./release.tgz
         asset_name: release.taz
-        asset_content_type: text/plain
+        asset_content_type: application/x-tgz
 
     # # 部署到服务器
-    # - name: Deploy
-    #   uses: appleboy/ssh-action@master
-    #   with:
-    #     host: ${{ secrets.HOST }}
-    #     username: ${{ secrets.USERNAME }}
-    #     password: ${{ secrets.PASSWORD }}
-    #     port: ${{ secrets.PORT }}
-    #     script: |
-    #       cd /root/www/wwwroot/test
-    #       wget https://github.com//axusun/axu-blog/releases/latest/download/dist -O dist
-         
+    - name: Deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: |
+          cd /root/www/wwwroot/test
+          wget https://github.com//axusun/axu-blog/releases/latest/download/release.tgz -O release.tgz
+          tar zxvf release.tgz

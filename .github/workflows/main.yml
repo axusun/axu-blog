@@ -53,6 +53,6 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          cd /root/www/wwwroot/test
+          cd /www/wwwroot/test
           wget https://github.com//axusun/axu-blog/releases/latest/download/release.tgz -O release.tgz
           tar zxvf release.tgz
